@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import WindowDemo from './WindowDemo'
+import WindowSize from './WindowSize';
+import useWindowSize from './useWindowSize'
+import { PRIMARY_COLOR } from './Colors'
+import Button from './Button';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const windowSize = useWindowSize()
+  
+    
+    const renderThings = ()=>{
+      return (
+        <div>
+                <WindowSize />
+                <WindowDemo />
+        </div>
+      )
+    }
 
-export default App;
+    return (
+      <div className='App' style={{border:`2px solid ${PRIMARY_COLOR}`}}>
+        <h1>App Component</h1>
+        <WindowSize />
+        <p>{JSON.stringify(windowSize)}</p>
+        {/* <Button> </Button> */}
+     
+      </div>
+    );
+  }
+
+
+export default App
